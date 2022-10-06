@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { PAGES } from '../constants';
 import { RouteContext } from '../context';
+import { usePopState } from '../hooks/usePopstate';
 
 interface RouterProps {
   children: React.ReactNode;
@@ -16,14 +17,14 @@ export const Router = ({ children }: RouterProps) => {
     return element.props.path === path;
   });
 
+  usePopState(() => {
+    setPath(location.pathname);
+  }, path);
+
   useEffect(() => {
     if (!currentElement) {
       setPath(PAGES.NOT_FOUND);
     }
-
-    window.onpopstate = (e) => {
-      setPath(e.state);
-    };
   }, [path]);
 
   return (
