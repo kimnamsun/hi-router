@@ -30,6 +30,9 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -54,6 +57,12 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (prefers-color-scheme: light) {
